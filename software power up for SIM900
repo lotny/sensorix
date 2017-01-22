@@ -1,0 +1,26 @@
+#include <SoftwareSerial.h>
+SoftwareSerial SIM900(7, 8); // configure software serial port
+
+void setup()
+{
+  SIM900.begin(9600);               
+  powerUp();  
+  delay(5000);  // give time to log on to network. 
+}
+
+void powerUp()
+// software equivalent of pressing the GSM shield "power" button
+{
+ pinMode(9, OUTPUT); 
+ digitalWrite(9,LOW);
+ delay(1000);
+ digitalWrite(9,HIGH);
+ delay(2000);
+ digitalWrite(9,LOW);
+ delay(3000);
+}
+
+void loop() {
+  powerUp();
+  delay(1000000);
+}

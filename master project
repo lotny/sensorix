@@ -9,7 +9,7 @@
 #define PIN_TX    7
 #define PIN_RX    8
 #define BAUDRATE  9600
-#define PHONE_NUMBER "+48608017206"
+#define PHONE_NUMBER "xxxxxxxx"
 #define MESSAGE  "I am too cold."
 
 bool messageSent = false;

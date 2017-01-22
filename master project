@@ -3,8 +3,9 @@
 #include <GPRS_Shield_Arduino.h>
 #include <SoftwareSerial.h>
 #include <Wire.h>
+#define VT_PIN A0 // voltage read-out
 
-//GPS module
+//GSM
 #define PIN_TX    7
 #define PIN_RX    8
 #define BAUDRATE  9600
@@ -67,19 +68,7 @@ void setup() {
 // function to print the temperature for a device
 float printTemperature(DeviceAddress deviceAddress)
 {
-  // method 1 - slower
-  //Serial.print("Temp C: ");
-  //Serial.print(sensors.getTempC(deviceAddress));
-  //Serial.print(" Temp F: ");
-  //Serial.print(sensors.getTempF(deviceAddress)); // Makes a second call to getTempC and then converts to Fahrenheit
-
-  // method 2 - faster
   float tempC = sensors.getTempC(deviceAddress);
-  /* Serial.print("Temp C: ");
-  Serial.print(tempC);
-  Serial.print(" Temp F: "); */
-  // Serial.println(DallasTemperature::toFahrenheit(tempC)); // Converts tempC to Fahrenheit
-  // tempC = (tempC - 32.0) / 1.8;
   
   return tempC;
 }
@@ -93,6 +82,12 @@ void loop(void)
   // Serial.print("Requesting temperatures...");
   // sensors.requestTemperatures(); // Send the command to get temperatures
   // Serial.println("DONE");
+  int vt_read = analogRead(VT_PIN);
+  float voltage = vt_read * (5.0 / 1024.0) * 5.0;
+  if (voltage == 0)
+  {
+    Serial.print("Voltage is 0.");
+  }
   
   // It responds almost immediately. Let's print out the data
   sensors.requestTemperatures();

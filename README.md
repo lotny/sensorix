@@ -2,6 +2,9 @@
 
 
 ## hardware used:
+
 arduino
+
 sim900 module
+
 heat sensor

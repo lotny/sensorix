@@ -39,6 +39,14 @@ char datetime[24];
 
 //char msg = ""; 
 // char messages[] = {"log", "status", "temp 25"};
+=======
+#define PHONE_NUMBER "xxxxxxxx"
+#define MESSAGE  "I am too cold."
+
+bool messageSent = false;
+float tolerance1 = 20.0;
+float tolerance2 = 20.0;
+int delayTime = 5000; //in miliseconds 180000
 
 GPRS gprsTest(PIN_TX,PIN_RX,BAUDRATE);//RX,TX,BaudRate
 

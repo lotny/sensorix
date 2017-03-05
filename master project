@@ -11,7 +11,7 @@
 #define PIN_TX    7
 #define PIN_RX    8
 #define BAUDRATE  9600
-#define PHONE_NUMBER "+48607570366"
+#define PHONE_NUMBER "xxxxxxxxx"
 #define MESSAGETEMP  "Temperatura za niska."
 #define MESSAGEPOWER "Brak zasilania."
 #define MESSAGEPOWERBACK "Zasilanie wrocilo."
